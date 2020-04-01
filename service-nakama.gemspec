@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
                                       This gem just adds some helping hand for your
                                       Service Object'
   spec.homepage                    = 'https://github.com/rafayet-monon/service-nakama'
-  spec.required_ruby_version       = Gem::Requirement.new('>= 2.3.0')
+  spec.required_ruby_version       = Gem::Requirement.new('>= 2.3.1')
   spec.metadata['homepage_uri']    = spec.homepage
   spec.metadata['source_code_uri'] = spec.homepage
   spec.metadata['changelog_uri']   = spec.homepage

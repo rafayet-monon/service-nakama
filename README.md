@@ -1,4 +1,8 @@
 # Service Nakama
+[![Gem Version](https://badge.fury.io/rb/service-nakama.svg)](https://badge.fury.io/rb/service-nakama)
+[![Build Status](https://travis-ci.org/rafayet-monon/service-nakama.svg?branch=master)](https://travis-ci.org/rafayet-monon/service-nakama)
+[![Maintainability](https://api.codeclimate.com/v1/badges/5cc27bf49dbb442d24f6/maintainability)](https://codeclimate.com/github/rafayet-monon/service-nakama/maintainability)
+
 This is a tiny gem that provides some basic functionality to Service Objects. Service Object pattern is a popular
  pattern that is used in RoR to maintain thin controllers and models. They are basically just ruby classes that
   encapsulates similar types of functionality for a operation.
@@ -44,9 +48,17 @@ The error will be in the `error` property of the object.
  ```
 It also provides som other handy methods -
  ```ruby
- report.success?
- report.failed?
- report.error_message
+ report.success? # true or false
+ report.failed? # true or false
+ report.error_message # only error message
+ report.error_class # only error class
+ ```
+Also someone might want to log the error or use some exception tracking service for the errors that occured. To do
+ this just have override a instance method `error_logger`
+ ```ruby
+def error_logger
+   Rollbar.error(@error)
+end
  ```
 If you want something other than `perform` then you do the following -
 ```ruby

@@ -9,7 +9,7 @@ module ServiceNakama
   end
 
   def success?
-    @error.blank?
+    @error.nil?
   end
 
   alias success success?
@@ -20,10 +20,8 @@ module ServiceNakama
 
   alias failed failed?
 
-  def handle_error(error, status = 'rescue')
-    @error = error
-
-    raise @error if status == 'raise'
+  def error_logger
+    puts "Exception Handled From Service Class(#{error_class}: #{error_message})"
   end
 
   def error_message
@@ -34,21 +32,19 @@ module ServiceNakama
     @error.class
   end
 
+  def raise_not_implemented(method)
+    raise NotImplementedError, "Implement the '#{method}' method to your Service Class"
+  end
+
   module ClassMethods
-    def main_method(method_name = 'perform')
-      method = method_name.to_sym
-      define_main_instance_method method
+    def main_method(method = :perform)
+      method = method.to_sym if method.is_a? String
+      define_method(method) { raise_not_implemented method }
 
       define_main_singleton_method method
     end
 
     private
-
-    def define_main_instance_method(method)
-      define_method method do
-        raise NotImplementedError, "Implement the '#{method}' method to your Service Class"
-      end
-    end
 
     def define_main_singleton_method(method)
       define_singleton_method method do |*args|
@@ -56,7 +52,8 @@ module ServiceNakama
           begin
             service.instance_variable_set('@result', service.public_send(method))
           rescue => e
-            service.handle_error(e)
+            service.instance_variable_set('@error', e)
+            service.error_logger
           end
         end
       end
