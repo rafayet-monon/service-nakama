@@ -72,6 +72,18 @@ Then it will expect the instance method `call` in that class and can be used lik
  report = ReportService.call(some_parameter)
  ```
 
+
+## Benchmarking
+Benchmarking was done using a `ReportService` class for this
+[class](https://github.com/rafayet-monon/google-search-extractor/blob/master/app/services/report_service.rb). There
+ is on visible performance issue that can done by this gem.
+```
+                          |  user  |    | system |    |  total   |   |   real     |
+-----------------------------------------------------------------------------------
+Without ServiceNakama     |5.702399|    |0.017627|    | 5.720026 |   | (5.734128) |
+-----------------------------------------------------------------------------------
+With ServiceNakama        |5.702157|    |0.007777|    | 5.709934 |   | (5.720078) |
+ ```
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/rafayet-monon/service-nakama.
