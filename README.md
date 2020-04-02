@@ -75,9 +75,10 @@ Then it will expect the instance method `call` in that class and can be used lik
 
 
 ## Benchmarking
-Benchmarking was done using a `ReportService` class for this
-[class](https://github.com/rafayet-monon/google-search-extractor/blob/master/app/services/report_service.rb). There
- is on visible performance issue that can done by this gem.
+[Benchmarking](https://github.com/rafayet-monon/google-search-extractor/blob/benchmark/service_nakam/app/services/benchmark_nakama.rb) was done using a `ReportService` class for this
+class [without service-nakama](https://github.com/rafayet-monon/google-search-extractor/blob/benchmark/service_nakam/app/services/report_service.rb) 
+& [with service-nakama](https://github.com/rafayet-monon/google-search-extractor/blob/benchmark/service_nakam/app/services/report_service_with_nakama.rb).
+ There is no performance issue that can done by this gem.
 ```
                           |  user  |    | system |    |  total   |   |   real     |
 -----------------------------------------------------------------------------------
