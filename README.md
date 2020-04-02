@@ -1,7 +1,8 @@
-# Service Nakama
+# [Service Nakama](https://rafayet-monon.github.io/service-nakama/)
 [![Gem Version](https://badge.fury.io/rb/service-nakama.svg)](https://badge.fury.io/rb/service-nakama)
 [![Build Status](https://travis-ci.org/rafayet-monon/service-nakama.svg?branch=master)](https://travis-ci.org/rafayet-monon/service-nakama)
 [![Maintainability](https://api.codeclimate.com/v1/badges/5cc27bf49dbb442d24f6/maintainability)](https://codeclimate.com/github/rafayet-monon/service-nakama/maintainability)
+[![codecov](https://codecov.io/gh/rafayet-monon/service-nakama/branch/master/graph/badge.svg)](https://codecov.io/gh/rafayet-monon/service-nakama)
 
 This is a tiny gem that provides some basic functionality to Service Objects. Service Object pattern is a popular
  pattern that is used in RoR to maintain thin controllers and models. They are basically just ruby classes that
